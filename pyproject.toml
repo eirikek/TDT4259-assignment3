@@ -1,0 +1,13 @@
+[project]
+name = "tdt4259-assignment3"
+version = "0.1.0"
+description = "Day-ahead electricity consumption forecasting for TDT4259"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "numpy==2.3.5",
+    "pandas==2.2.3",
+]
+
+[tool.uv]
+package = false
