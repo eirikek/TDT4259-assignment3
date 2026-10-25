@@ -58,5 +58,22 @@ This selects model settings and feature sets using 1 November to 26 December
 Results are saved in `outputs/section_3/evaluation/`, including candidate
 scores, selected settings, daily predictions and metrics for each price area.
 
+Run the follow-up month comparison used in the revised report
+
+```bash
+uv run --locked python -m section_3.month_check
+```
+
+This compares each selected model with the same model without month, keeping
+its other features and settings fixed. Validation MAE determines whether month
+is kept. The selected variants are then scored on the historical test period.
+This is a follow-up after the original test results were inspected.
+
+Results are saved separately in `outputs/section_3/month_check/`. They include
+the month comparison, selected settings, predictions, metrics and a score
+that gives each price area equal weight. The `results/` subfolder contains
+the updated figure and diagnostics for large errors and weekly performance.
+The original evaluation files are kept.
+
 The raw file is never overwritten. Generated files are excluded from Git and
 can be recreated by running the commands again.

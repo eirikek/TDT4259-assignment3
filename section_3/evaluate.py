@@ -85,14 +85,16 @@ def summarise(predictions):
     return pd.DataFrame(rows)
 
 
-def run_period(data, start, end, method, parameters, feature_set):
+def run_period(data, start, end, method, parameters, feature_set, features=None):
+    if features is None:
+        features = FEATURE_SETS[feature_set]
     predictions = []
     days = pd.date_range(start, end, freq="D", tz="UTC")
     for number, day in enumerate(days, start=1):
         models = train_models(
             data,
             day,
-            features=FEATURE_SETS[feature_set],
+            features=features,
             model_name=method,
             **parameters,
         )
