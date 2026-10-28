@@ -23,6 +23,32 @@ Keep the filename unchanged. The data file is excluded from Git.
 
 ## Run
 
+### Section 2
+
+Run the data-quality checks behind section 2.3:
+
+```bash
+uv run --locked python -m section_2.data_quality_checks
+```
+
+This prints missing values, duplicate time–location pairs, gaps, zero values
+and coverage for each price area.
+
+Run the exploratory analysis for section 2.4:
+
+```bash
+uv run --locked python -m section_2.eda
+```
+
+This prints the numbers used in sections 2.3 and 2.4 (including Table 1, the
+Helsinki level step and Table 3) and saves the three figures:
+
+- `outputs/section_2/figures/fig_consumption_vs_temperature.pdf`
+- `outputs/section_2/figures/fig_consumption_timeseries.pdf`
+- `outputs/section_2/figures/fig_daily_profile_winter.pdf`
+
+### Section 3
+
 Prepare the data for section 3.1:
 
 ```bash
@@ -74,6 +100,8 @@ the month comparison, selected settings, predictions, metrics and a score
 that gives each price area equal weight. The `results/` subfolder contains
 the updated figure and diagnostics for large errors and weekly performance.
 The original evaluation files are kept.
+
+### Notes
 
 The raw file is never overwritten. Generated files are excluded from Git and
 can be recreated by running the commands again.
